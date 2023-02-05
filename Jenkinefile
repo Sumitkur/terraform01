@@ -11,8 +11,7 @@ pipeline {
         
         stage ("terraform init") {
             steps {
-                sh 'echo "hi my name is sumit"'
-                sh '/c/ProgramData/chocolatey/bin/terraform init'
+                powershell 'terraform init'
             }
         }
         
