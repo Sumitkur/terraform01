@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-            git branch: 'main', credentialsId: '8b5bbcbd-7c63-4223-82b3-db79490c91ee', url: 'https://github.com/Sumitkur/terraform01.git'          
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '8b5bbcbd-7c63-4223-82b3-db79490c91ee', url: 'https://github.com/Sumitkur/terraform01.git']]])        
 
           }
         }
