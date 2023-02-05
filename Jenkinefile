@@ -11,7 +11,8 @@ pipeline {
         
         stage ("terraform init") {
             steps {
-                sh ('terraform init') 
+                sh 'echo "hi my name is sumit"'
+                sh '/c/ProgramData/chocolatey/bin/terraform init'
             }
         }
         
