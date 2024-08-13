@@ -20,3 +20,10 @@ jobs:
       - name: Use that secret output (protected by a mask)
         run: |
           echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
+     
+      - name: Set environment variable
+        run: echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
+
+      - name: Use environment variable
+        run: |
+          echo "The value of MY_ENV_VAR is $MY_ENV_VAR"
