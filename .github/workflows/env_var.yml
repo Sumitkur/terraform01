@@ -7,9 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set environment variable
-      - run: echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
-      - run: echo "configFilename=vsBatchwebconfig" >> $GITHUB_ENV
-      - run:  echo "The value of configFilename is ${{env.configFilename}}"
+        run: echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
+      - name: Set  variable
+        run: echo "configFilename=vsBatchwebconfig" >> $GITHUB_ENV
+      - name: Set envir variable
+        run:  echo "The value of configFilename is ${{env.configFilename}}"
 
       - name: Use environment variable
         run: |
