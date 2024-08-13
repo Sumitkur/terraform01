@@ -12,4 +12,8 @@ jobs:
       - name: Use environment variable
         run: |
           echo "The value of MY_ENV_VAR is ${{env.MY_ENV_VAR}}"
+          the_secret="Mona best"
+          #echo "::add-mask::$the_secret"
+          echo $the_secret
+          echo "double quotes env is used is ${{env.the_secret}}"
 
