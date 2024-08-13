@@ -7,11 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set environment variable
-        run: echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
+        run: 
+         echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
+         echo "configFilename=vsBatchwebconfig" >> $GITHUB_ENV
 
       - name: Use environment variable
         run: |
           echo "The value of MY_ENV_VAR is ${{env.MY_ENV_VAR}}"
+          echo "The value of configFilename is ${{env.configFilename}}"
           the_secret="Mona is best"
           #echo "::add-mask::$the_secret"
           echo $the_secret
