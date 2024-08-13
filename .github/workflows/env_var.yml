@@ -16,4 +16,5 @@ jobs:
           #echo "::add-mask::$the_secret"
           echo $the_secret
           echo "double quotes env is used is ${{env.the_secret}}"
+          echo "double quotes env is used is ${{the_secret}}"
 
