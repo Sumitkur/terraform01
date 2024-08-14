@@ -8,8 +8,10 @@ jobs:
     steps:
       - name: Set environment variable
         run: |
-           echo "MY_ENV_VAR=mySumitValue" >> $GITHUB_ENV
-           echo "configFilename=vsBatchwebconfig" >> $GITHUB_ENV
+           echo "MY_ENV_VAR=mySumitValue" >> "$GITHUB_ENV"
+           echo "configFilename=vsBatchwebconfig" >> "$GITHUB_ENV"
+           echo "The value of configFilename is ${{env.configFilename}}"
+           echo "The value of MY_ENV_VAR is ${{env.MY_ENV_VAR}}"
            configname="filelocation"
            echo "My file location is $configname"
       #- name: Set  variable
@@ -19,8 +21,8 @@ jobs:
 
       - name: Use environment variable
         run: |
-          echo "The value of MY_ENV_VAR is ${{env.MY_ENV_VAR}}"
-          echo "The value of configFilename is ${{env.configFilename}}"
+          #echo "The value of MY_ENV_VAR is ${{env.MY_ENV_VAR}}"
+          #echo "The value of configFilename is ${{env.configFilename}}"
           the_secret="Mona is best"
           #echo "::add-mask::$the_secret"
           echo $the_secret
