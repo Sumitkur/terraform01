@@ -12,6 +12,7 @@ pipeline {
         stage ("terraform init") {
             steps {
                 powershell 'terraform init'
+                #echo "hi"
             }
         }
         
