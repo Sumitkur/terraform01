@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-            echo "hello work"          
+            echo "Hi this is my rebase"          
 
           }
         }
