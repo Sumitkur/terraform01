@@ -1,6 +1,11 @@
-#!/bin/sh
-echo "files executed successfulluy"
-if a="sumit"
- echo "$a is sumit"
-else 
- echo "$a is not sumit"
+#!/bin/bash
+
+# Print current directory
+echo "Current directory: $(pwd)"
+
+# List files in the current directory
+echo "Files in current directory:"
+ls
+
+# Display the current date and time
+echo "Current date and time: $(date)"
