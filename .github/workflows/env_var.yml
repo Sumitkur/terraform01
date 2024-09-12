@@ -30,10 +30,10 @@ jobs:
       - name: Run Shell script for access check
         uses: actions/checkout@v4 
       - name: Make the script files executable
-        run: chmod +x auth.sh
+        run: chmod +x ./auth.sh
          
       - name: Run a script
-        run: auth.sh
+        run: ./auth.sh
           
           
               
