@@ -27,7 +27,10 @@ jobs:
           #echo "::add-mask::$the_secret"
           echo $the_secret
       - name: Run Shell script for access check
-         run: bash ./auth.sh
+         run: |
+          chmod +x "${GITHUB_WORKSPACE}/.github/auth.sh"
+          "${GITHUB_WORKSPACE}/.github/auth.sh"
+          
               
           
           
