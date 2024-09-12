@@ -26,6 +26,9 @@ jobs:
           the_secret="Mona is best"
           #echo "::add-mask::$the_secret"
           echo $the_secret
+      - name: Run Shell script for access check
+         run: bash ./auth.sh
+              
           
           
 
