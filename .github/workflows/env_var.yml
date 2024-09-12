@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v4 
          
       - name: Run a script
-        run: ${{ github.action_path }}/auth.sh
+        run: "./auth.sh"
         shell: bash
           
           
