@@ -35,7 +35,7 @@ jobs:
          echo "Current directory: $(pwd)"
          chmod +x "/home/runner/work/terraform01/terraform01/.github/workflows/auth.sh"
          cd "/home/runner/work/terraform01/terraform01/.github/workflows/"
-         ./auth.sh
+         ./auth.sh "sumit"
          
          
         
