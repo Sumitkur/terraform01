@@ -28,10 +28,13 @@ jobs:
           #echo "::add-mask::$the_secret"
           echo $the_secret
       - name: Run Shell script for access check
-         run: |
-          run-name: ${{ github.actor }} is learning GitHub Actions
-          chmod +x "${GITHUB_WORKSPACE}/.github/auth.sh"
-          "${GITHUB_WORKSPACE}/.github/auth.sh"
+        uses: actions/checkout@v4 
+      - name: Make the script files executable
+        run: chmod +x auth.sh
+         
+      - name: Run a script
+        run: auth.sh
+          
           
               
           
