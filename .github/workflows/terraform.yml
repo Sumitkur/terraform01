@@ -17,7 +17,7 @@ jobs:
       - id: sets-a-secret
         name: Generate, mask, and output a secret
         run: |
-         if [[{{ inputs.name}} == "monalisa"]];then echo "true"; fi
+         if [[ ${{ inputs.name}} == "monalisa"]];then echo "true"; fi
          
       - name: Use that secret output (protected by a mask)
         run: |
