@@ -23,6 +23,7 @@ jobs:
         name: deploy on dev env by deafult
         run: |
           the_secret="Mona best"
+          DAY_OF_WEEK="Monday"
           #echo "::add-mask::$the_secret"
           echo $the_secret
           echo "a=$the_secret" >> "$GITHUB_OUTPUT"
@@ -32,7 +33,7 @@ jobs:
         run: |
           echo "the secret number is ${{ steps.deployment-steps.outputs.secret-number }}"  
       - name: "Say Hello Mona it's Monday"
-        DAY_OF_WEEK="Monday"
-        if: ${{ $DAY_OF_WEEK == 'Monday' }}
+         
+        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
             
