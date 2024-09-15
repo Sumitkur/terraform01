@@ -1,17 +1,17 @@
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      TWNCSF env:
+        description: 'env'
         required: true
-        default: 'warning'
+        default: 'dev'
         type: choice
         options:
-          - info
-          - warning
-          - debug
+          - dev
+          - qa
+          - uat
       print_tags:
-        description: 'True to print to STDOUT'
+        description: 'app version'
         required: true
         type: boolean
 
@@ -19,7 +19,7 @@ jobs:
   generate-a-secret-output:
     runs-on: ubuntu-latest
     steps:
-      - id: sets-a-secret
+      - id: to test for dev env
         name: Generate, mask, and output a secret
         run: |
           the_secret="Mona best"
