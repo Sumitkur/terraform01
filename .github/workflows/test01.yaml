@@ -30,4 +30,5 @@ jobs:
           echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
       - name: Use that secret output (protected by a mask)
         run: |
+          contains('Dev QA , 'devqa')
           echo "the secret number is ${{ steps.deployment-steps.outputs.secret-number }}"    
