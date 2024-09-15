@@ -16,11 +16,11 @@ on:
         type: boolean
 
 jobs:
-  generate-a-secret-output:
+  twncsf-app-deployment:
     runs-on: ubuntu-latest
     steps:
       - id: deployment-steps
-        name: Generate, mask, and output a secret
+        name: deploy on dev env by deafult
         run: |
           the_secret="Mona best"
           #echo "::add-mask::$the_secret"
@@ -30,4 +30,4 @@ jobs:
           echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
       - name: Use that secret output (protected by a mask)
         run: |
-          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"    
+          echo "the secret number is ${{ steps.deployment-steps.outputs.secret-number }}"    
