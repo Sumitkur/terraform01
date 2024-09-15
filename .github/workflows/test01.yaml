@@ -19,7 +19,7 @@ jobs:
   generate-a-secret-output:
     runs-on: ubuntu-latest
     steps:
-      - id: to test for dev env
+      - id: deployment-steps
         name: Generate, mask, and output a secret
         run: |
           the_secret="Mona best"
