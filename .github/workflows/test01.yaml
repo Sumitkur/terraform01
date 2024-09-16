@@ -23,18 +23,19 @@ jobs:
         name: deploy on dev env by deafult
         run: |
           the_secret="Mona best"
-          DAY_OF_WEEK: [ "monday", "tuesday" , "Wednesday" ]  
-          DAY_OF_WEEK01="monday"
+          #DAY_OF_WEEK: [ "monday", "tuesday" , "Wednesday" ]  
+          DAY_OF_WEEK01="Monday"
           #echo "::add-mask::$the_secret"
           echo $the_secret
           echo "a=$the_secret" >> "$GITHUB_OUTPUT"
           echo "the secret number is :: $a"
           echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
+          ui.notify('Hello', timeout=0,close_button='OK')
       - name: Use that secret output (protected by a mask)
         run: |
           echo "the secret number is ${{ steps.deployment-steps.outputs.secret-number }}"  
       - name: "Say Hello Mona it's Monday"
          
-        if: ${{ env.DAY_OF_WEEK01 in [ "monday", "tuesday" , "Wednesday" ]}}
+        if: ${{ env.DAY_OF_WEEK01 == "Monday"}}
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
             
