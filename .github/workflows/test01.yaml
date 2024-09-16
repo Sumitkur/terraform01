@@ -36,6 +36,6 @@ jobs:
           echo "the secret number is ${{ steps.deployment-steps.outputs.secret-number }}"  
       - name: "Say Hello Mona it's Monday"
          
-        if: ${{ env.DAY_OF_WEEK01 == "Monday"}}
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+       # if: ${{ $DAY_OF_WEEK01 == "Monday"}}
+        run: echo "$Greeting $First_Name. Today is DAY_OF_WEEK!"
             
