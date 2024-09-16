@@ -39,5 +39,6 @@ jobs:
          
         if: ${{ $DAY_OF_WEEK01 == "Monday"}}
         run: echo "$Greeting $First_Name. Today is DAY_OF_WEEK!"
-        else echo "this is not true"
+        else :
+        run: echo " it is false statement"
             
