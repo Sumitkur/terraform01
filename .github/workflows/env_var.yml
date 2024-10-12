@@ -32,7 +32,7 @@ jobs:
           the_secret="Mona is best"
           #echo "::add-mask::$the_secret"
           echo $the_secret
-          calledvar=$({{env.MY_ENV_VAR}}-$configname-$the_secret)
+          calledvar=${{env.MY_ENV_VAR}}-$configname-$the_secret)
            echo "$calledvar"
       - name: Run Shell script for access check
         uses: actions/checkout@v4 
