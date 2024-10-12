@@ -15,6 +15,11 @@ jobs:
            echo "The value of MY_ENV_VAR is ${{env.MY_ENV_VAR}}"
            configname="filelocation"
            echo "My file location is $configname"
+           calledvar=$({{env.MY_ENV_VAR}}-$configname-$the_secret)
+           echo "$calledvar"
+           calledvar1=${{env.MY_ENV_VAR}}-$configname-$the_secret
+           echo "$calledvar1"
+           
       #- name: Set  variable
       #  run: 
       - name: Set envir variable
