@@ -15,10 +15,10 @@ jobs:
            echo "The value of MY_ENV_VAR is ${{env.MY_ENV_VAR}}"
            configname="filelocation"
            echo "My file location is $configname"
-           calledvar=$({{env.MY_ENV_VAR}}-$configname-$the_secret)
+           calledvar=$({{env.MY_ENV_VAR}}-$configname)
            echo "$calledvar"
-           calledvar1=${{env.MY_ENV_VAR}}-$configname-$the_secret
-           echo "$calledvar1"
+           #calledvar1=${{env.MY_ENV_VAR}}-$configname-$the_secret
+           #echo "$calledvar1"
            
       #- name: Set  variable
       #  run: 
@@ -32,6 +32,8 @@ jobs:
           the_secret="Mona is best"
           #echo "::add-mask::$the_secret"
           echo $the_secret
+          calledvar=$({{env.MY_ENV_VAR}}-$configname-$the_secret)
+           echo "$calledvar"
       - name: Run Shell script for access check
         uses: actions/checkout@v4 
          
