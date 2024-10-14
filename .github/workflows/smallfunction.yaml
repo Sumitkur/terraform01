@@ -41,7 +41,7 @@ jobs:
         run: echo "Input action is allowed"
 
       - name: Option if not allowed
-        if: ${{ github.event.inputs.choice_input == 'notallowed' }}
+        if: ${{ github.event.inputs.choice_input == 'notallowed' &&  { github.actor == "sumitkur" || github.actor == "amit" }}}
         run: echo "Input action is not allowed"
 
       - name: Do nothing
