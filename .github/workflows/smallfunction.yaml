@@ -25,7 +25,7 @@ jobs:
       - name: Set envir variable
         run: |
           echo "The value of configFilename is ${{env.the_secret}}"
-          echo "The value of configFilename $configname"
+          echo "The value of configFilename ${{env.configname}}"
         
 
       - name: Use environment variable
