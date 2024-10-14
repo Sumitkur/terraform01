@@ -5,7 +5,7 @@ jobs:
   set_and_use_env_vars:
     runs-on: ubuntu-latest
     env: 
-          the_secret="Mona is best"
+          the_secret: "Mona is best"
     steps:
         
       - name: Set environment variable
