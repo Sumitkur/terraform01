@@ -1,5 +1,16 @@
-iname: Example Workflow for Environment Files
-on: push
+name: Example Workflow for Environment Files
+on: workflow_dispatch
+ 
+ inputs:
+   input_id: _inputname
+   choice_input:
+      description: 'A choice input'
+      required: true
+      default: 'Option1'
+      options:
+        - allowed
+        - notallowed
+        - donothing
 
 jobs:
   set_and_use_env_vars:
@@ -34,6 +45,19 @@ jobs:
           echo "$the_secret"
           calledvar=${{env.MY_ENV_VAR}}-${{env.configname}}-$the_secret
            echo $calledvar
+
+      - name: optionifallowed
+        if: ${{ github.event.inputs.choice_input == 'allowed' 
+        run:  echo "input aaction is allowed"
+
+      - name: optionifadded
+        #if: ${{ github.event.inputs.choice_input == 'notallowed' 
+        run: echo "input aaction is notallowed"
+         
+      - name: donothingfiled
+        if: ${{ github.event.inputs.choice_input == 'donothing' 
+        run: echo "input aaction is notallowed"
+          
      
          
         
