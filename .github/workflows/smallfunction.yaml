@@ -1,0 +1,38 @@
+name: Example Workflow for Environment Files
+on: push
+
+jobs:
+  set_and_use_env_vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set environment variable
+        run: |
+           echo "MY_ENV_VAR=firstgithub_env_variable01" >> "$GITHUB_ENV"
+           echo "configFilename=second_vsBatchwebconfig" >> "$GITHUB_ENV"
+           configname="filelocation"
+           echo "My file location is $configname"
+           calledvar=${{env.MY_ENV_VAR}}-$configname
+           echo "$calledvar"
+                     
+      #- name: Set  variable
+      #  run: 
+      - name: Set envir variable
+        run: |
+          echo "The value of configFilename is $configFilename"
+          echo "The value of configFilename $configname"
+        
+
+      - name: Use environment variable
+        run: |
+          the_secret="Mona is best"
+          echo "$the_secret"
+          calledvar=${{env.MY_ENV_VAR}}-$configname-$the_secret
+           echo "$calledvar"
+     
+         
+        
+          
+          
+              
+          
+          
