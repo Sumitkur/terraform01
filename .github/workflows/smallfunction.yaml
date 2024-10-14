@@ -11,7 +11,7 @@ jobs:
            echo "configFilename=second_vsBatchwebconfig" >> "$GITHUB_ENV"
            configname="filelocation"
            echo "My file location is $configname"
-           calledvar=${{env.MY_ENV_VAR}}-$configname
+           calledvar=${{env.MY_ENV_VAR}}-${{env.configname}}
            echo "$calledvar"
                      
       #- name: Set  variable
@@ -26,8 +26,8 @@ jobs:
         run: |
           the_secret="Mona is best"
           echo "$the_secret"
-          calledvar=${{env.MY_ENV_VAR}}-$configname-$the_secret
-           echo "$calledvar"
+          calledvar=${{env.MY_ENV_VAR}}-${{env.configname}}-$the_secret
+           echo $calledvar
      
          
         
