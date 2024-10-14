@@ -1,68 +1,49 @@
 name: Example Workflow for Environment Files
-on: workflow_dispatch
- 
- inputs:
-   input_id: _inputname
-   choice_input:
-      description: 'A choice input'
-      required: true
-      default: 'Option1'
-      options:
-        - allowed
-        - notallowed
-        - donothing
+
+on: 
+  workflow_dispatch:
+    inputs:
+      choice_input:
+        description: 'A choice input'
+        required: true
+        default: 'Option1'
+        options:
+          - allowed
+          - notallowed
+          - donothing
 
 jobs:
   set_and_use_env_vars:
     runs-on: ubuntu-latest
-    env: 
-          the_secret: "Mona is best"
+    env:
+      the_secret: "Mona is best"
     steps:
-        
-      - name: Set environment variable
-        
+      - name: Set environment variables
         run: |
-           
-           echo "MY_ENV_VAR=firstgithub_env_variable01" >> "$GITHUB_ENV"
-           echo "configFilename=second_vsBatchwebconfig" >> "$GITHUB_ENV"
-           echo "configname="pathoffile" >> "$GITHUB_ENV"
-           echo "My file location is $configname"
-           calledvar=${{env.MY_ENV_VAR}}-${{env.configname}}
-           echo "$calledvar"
-      
-                     
-      #- name: Set  variable
-      #  run: 
-      - name: Set envir variable
-        run: |
-          echo "The value of configFilename is ${{env.the_secret}}"
-          echo "The value of configFilename ${{env.configname}}"
-        
+          echo "MY_ENV_VAR=firstgithub_env_variable01" >> "$GITHUB_ENV"
+          echo "configFilename=second_vsBatchwebconfig" >> "$GITHUB_ENV"
+          echo "configname=pathoffile" >> "$GITHUB_ENV"
+          echo "My file location is $configname"
+          calledvar=${{ env.MY_ENV_VAR }}-${{ env.configname }}
+          echo "$calledvar"
 
-      - name: Use environment variable
+      - name: Use environment variables
         run: |
+          echo "The value of the_secret is ${{ env.the_secret }}"
+          echo "The value of configFilename is ${{ env.configFilename }}"
           the_secret="Mona is best"
           echo "$the_secret"
-          calledvar=${{env.MY_ENV_VAR}}-${{env.configname}}-$the_secret
-           echo $calledvar
+          calledvar=${{ env.MY_ENV_VAR }}-${{ env.configname }}-$the_secret
+          echo $calledvar
 
-      - name: optionifallowed
-        if: ${{ github.event.inputs.choice_input == 'allowed' 
-        run:  echo "input aaction is allowed"
+      - name: Option if allowed
+        if: ${{ github.event.inputs.choice_input == 'allowed' }}
+        run: echo "Input action is allowed"
 
-      - name: optionifadded
-        #if: ${{ github.event.inputs.choice_input == 'notallowed' 
-        run: echo "input aaction is notallowed"
-         
-      - name: donothingfiled
-        if: ${{ github.event.inputs.choice_input == 'donothing' 
-        run: echo "input aaction is notallowed"
-          
-     
-         
-        
-          
-          
-              
-          
-          
+      - name: Option if not allowed
+        if: ${{ github.event.inputs.choice_input == 'notallowed' }}
+        run: echo "Input action is not allowed"
+
+      - name: Do nothing
+        if: ${{ github.event.inputs.choice_input == 'donothing' }}
+        run: echo "Input action is do nothing"
