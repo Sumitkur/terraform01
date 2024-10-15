@@ -35,7 +35,11 @@ jobs:
           echo "$the_secret"
           calledvar=${{ env.MY_ENV_VAR }}-${{ env.configname }}-$the_secret
           echo $calledvar
-          chec_image=$($calledvar | grep "second" || true)
+          
+          calledvar="${{ env.MY_ENV_VAR }}-${{ env.configname }}"
+          chec_image=$(echo "$calledvar" | grep "second" || true)
+          echo "chec_image=$chec_image" >> $GITHUB_ENV
+          #chec_image=$($calledvar | grep "second" || true)
           if [["$chec_image" == true ]]; then
           echo "$chec_image is true"
           else 
