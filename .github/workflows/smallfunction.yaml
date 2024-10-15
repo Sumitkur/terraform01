@@ -35,6 +35,12 @@ jobs:
           echo "$the_secret"
           calledvar=${{ env.MY_ENV_VAR }}-${{ env.configname }}-$the_secret
           echo $calledvar
+          chec_image=$($calledvar | grep "second" || true)
+          if [["$chec_image" == true ]]; then
+          echo "$chec_image is true"
+          else 
+          echo "$chec_image is false"
+          fi
 
       - name: Option if allowed
         if: ${{ github.event.inputs.choice_input == 'allowed' }}
