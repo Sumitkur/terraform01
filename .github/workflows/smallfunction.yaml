@@ -57,7 +57,10 @@ jobs:
 
       - name: Option if allowed
         if: ${{ github.event.inputs.choice_input == 'allowed' }}
-        run: echo "Input action is allowed"
+        run: |
+         echo "Input action is allowed"
+         echo "$chec_image"
+         echo "${{env.chec_image}}"
 
       - name: Option if not allowed
         #if: ${{ github.event.inputs.choice_input == 'notallowed'}} && ${{ github.actor == 'sumit' || github.actor == 'amit' || github.actor == 'naveen'}} 
