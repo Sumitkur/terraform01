@@ -46,6 +46,26 @@ jobs:
          check_image=$(echo "$calledvar" | grep "first" || true)
          echo "chec_image=$check_image" >> $GITHUB_ENV
          echo "$check_image"
+
+      - name: Check image and set variable
+        run: |
+          calledvar="${{ env.MY_ENV_VAR }}-${{ env.configname }}"
+          check_image=$(echo "$calledvar" | grep "second" || true)
+          if [ -n "$check_image" ]; then
+          echo "check_image=found" >> $GITHUB_ENV
+          else
+          echo "check_image=not_found" >> $GITHUB_ENV
+          fi
+          echo "The value of check_image is $check_image"
+
+      - name: If check_image is found
+        if: ${{ env.check_image == 'found' }}
+        run: echo "The string 'second' was found in the variable."
+
+      - name: If check_image is not found
+        if: ${{ env.check_image == 'not_found' }}
+        run: echo "The string 'second' was not found in the variable."
+
          
 
 
