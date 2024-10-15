@@ -43,15 +43,16 @@ jobs:
         
 
       - name: Check image
-         run: |
+        run: |
          calledvar={{ env.MY_ENV_VAR }}-${{ env.configname }}
          chec_image=$(echo "$calledvar" | grep "second" || true)
          echo "chec_image=$chec_image" >> $GITHUB_ENV
-         if [["$chec_image" == true ]]; then
-         echo "$chec_image is true"
-         else 
-         echo "$chec_image is false"
-         fi
+         echo "${{env.chec_image}}"
+         #if [["$chec_image" == true ]]; then
+         #echo "$chec_image is true"
+         #else 
+         #echo "$chec_image is false"
+         #fi
 
 
       - name: Option if allowed
