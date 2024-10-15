@@ -44,7 +44,7 @@ jobs:
 
       - name: Check image
         run: |
-         calledvar={{ env.MY_ENV_VAR }}-${{ env.configname }}
+         calledvar="${{ env.MY_ENV_VAR }}-${{ env.configname }}"
          chec_image=$(echo "$calledvar" | grep "second" || true)
          echo "chec_image=$chec_image" >> $GITHUB_ENV
          echo "${{env.chec_image}}"
