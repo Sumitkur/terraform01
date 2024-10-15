@@ -24,6 +24,8 @@ jobs:
           echo "configFilename=second_vsBatchwebconfig" >> "$GITHUB_ENV"
           echo "configname=pathoffile" >> "$GITHUB_ENV"
           echo "My file location is $configname"
+          bi=$(echo "$configname")
+          echo $bi
           calledvar=${{ env.MY_ENV_VAR }}-${{ env.configname }}
           echo "$calledvar"
 
@@ -36,23 +38,15 @@ jobs:
           calledvar=${{ env.MY_ENV_VAR }}-${{ env.configname }}-$the_secret
           echo $calledvar
           
-          calledvar="${{ env.MY_ENV_VAR }}-${{ env.configname }}"
-          chec_image=$(echo "$calledvar" | grep "second" || true)
-          echo "chec_image=$chec_image" >> $GITHUB_ENV
-          #chec_image=$($calledvar | grep "second" || true)
-        
+                  
 
       - name: Check image
         run: |
          calledvar="${{ env.MY_ENV_VAR }}-${{ env.configname }}"
-         chec_image=$(echo "$calledvar" | grep "second" || true)
-         echo "chec_image=$chec_image" >> $GITHUB_ENV
-         echo "$chec_image"
-         if [["$chec_image" == true ]]; then
-         echo "$chec_image is true"
-         else 
-         echo "$chec_image is false"
-         fi
+         check_image=$(echo "$calledvar" | grep "second" || true)
+         echo "chec_image=$check_image" >> $GITHUB_ENV
+         echo "$check_image"
+         
 
 
       - name: Option if allowed
