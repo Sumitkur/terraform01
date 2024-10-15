@@ -48,11 +48,11 @@ jobs:
          chec_image=$(echo "$calledvar" | grep "second" || true)
          echo "chec_image=$chec_image" >> $GITHUB_ENV
          echo "$chec_image"
-         #if [["$chec_image" == true ]]; then
-         #echo "$chec_image is true"
-         #else 
-         #echo "$chec_image is false"
-         #fi
+         if [["$chec_image" == true ]]; then
+         echo "$chec_image is true"
+         else 
+         echo "$chec_image is false"
+         fi
 
 
       - name: Option if allowed
