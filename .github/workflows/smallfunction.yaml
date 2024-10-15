@@ -47,7 +47,7 @@ jobs:
          calledvar="${{ env.MY_ENV_VAR }}-${{ env.configname }}"
          chec_image=$(echo "$calledvar" | grep "second" || true)
          echo "chec_image=$chec_image" >> $GITHUB_ENV
-         echo "${{env.chec_image}}"
+         echo "$chec_image"
          #if [["$chec_image" == true ]]; then
          #echo "$chec_image is true"
          #else 
