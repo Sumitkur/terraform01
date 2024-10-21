@@ -5,7 +5,7 @@ import json
 owner = 'Sumitkur'
 repo = 'https://github.com/Sumitkur/terraform01'
 workflow_id = 'smallfunction.yaml'  # Can be the workflow file name or its ID
-token = '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'
+token = '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'
 
 # Triggering the workflow
 url = f'https://api.github.com/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches'
