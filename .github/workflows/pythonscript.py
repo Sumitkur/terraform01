@@ -3,7 +3,7 @@ import json
 
 # GitHub repository details
 owner = 'Sumitkur'
-repo = 'https://github.com/Sumitkur/terraform01'
+repo = 'https://github.com/Sumitkur/terraform01.git'
 workflow_id = 'smallfunction.yaml'  # Can be the workflow file name or its ID
 token = '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'
 
