@@ -27,6 +27,12 @@ variable "ami_id" {
   default     = "ami-0022f774911c1d690"
 }
 
+variable "Private_Subnet_4" {
+  default     = "10.0.2.0/24"
+  description = "Private_Subnet_1"
+  type        = string
+}
+
 
 variable "vpc-cidr" {
   default     = "10.0.0.0/16"
@@ -42,4 +48,5 @@ variable "Private_Subnet_1" {
   default     = "10.0.2.0/24"
   description = "Private_Subnet_1"
   type        = string
+
 }
